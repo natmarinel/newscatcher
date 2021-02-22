@@ -1,0 +1,116 @@
+<!--<html>
+  <head>
+    <title>NewsCatcher</title>
+  </head>
+
+  <body>
+    {%for new in news%}
+      <div style="width:100%;border:1px solid black">
+        <p>{{new.title}}</p>
+        <p>{{new.link}}</p>
+        <p>{{new.date}}</p>
+        <p>{{new.source}}</p>
+      </div>
+    {% endfor %}
+  </body>
+
+</html>-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+
+    <title>NewsCatcher</title>
+  </head>
+  <body>
+    <nav class="navbar" style="border-bottom:1px solid grey">
+      <div class="col-lg-12 mx-auto text-center">
+        <h1>
+          NewsCatcher
+        </h1>
+      </div>
+    </nav>
+    <div class="col-lg-8 mx-auto align-center" style="margin-top:50px">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="google-tab" data-bs-toggle="tab" data-bs-target="#google" type="button" role="tab" aria-controls="home" aria-selected="true">Google</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="yahoo-tab" data-bs-toggle="tab" data-bs-target="#yahoo" type="button" role="tab" aria-controls="profile" aria-selected="false">Yahoo</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="twitter-tab" data-bs-toggle="tab" data-bs-target="#twitter" type="button" role="tab" aria-controls="contact" aria-selected="false">Twitter</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="google" role="tabpanel" aria-labelledby="google-tab">
+          <div class="col-lg-8 mx-auto align-center">
+            {%for new in news%}
+              <div class="card" style="width: 90%;margin-top:50px;margin-left:5%">
+                <div class="card-body">
+                  <h5 class="card-title">{{new.title}}</h5>
+                  <p class="card-text">{{new.desc}}</p>
+                  <p>{{new.date}}</p>
+                  <a href="https://{{new.link}}" target="_blank" class="btn btn-primary" style="width:50%">Link</a>
+                  
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        
+        </div>
+        <div class="tab-pane fade" id="yahoo" role="tabpanel" aria-labelledby="yahoo-tab">
+          <div class="col-lg-8 mx-auto align-center">
+            
+          </div>
+        </div>
+        <div class="tab-pane fade" id="twitter" role="tabpanel" aria-labelledby="twitter-tab">
+          <div class="col-lg-8 mx-auto align-center">
+          {%for tweet in tweets%}
+            <div class="card" style="width: 90%;margin-top:50px;margin-left:5%">
+              <div class="card-body">
+                <h5 class="card-title">{{tweet.user.name}}</h5>
+                <p class="card-text">{{tweet.text}}</p>
+                <p>{{tweet.created_at}}</p>
+                <a href="https://twitter.com/twitter/status/{{tweet.id}}" target="_blank" class="btn btn-primary" style="width:50%">Link</a>
+              </div>
+            </div>
+          {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+<!--
+    
+    {%for new in news%}
+      <div class="card" style="width: 90%;margin-top:50px;">
+        <div class="card-body">
+          <h5 class="card-title">{{new.title}}</h5>
+          <p class="card-text">{{new.desc}}</p>
+          <p>{{new.date}}</p>
+          <a href="{new.site}}" class="btn btn-primary" style="width:50%">Link</a>
+          
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+-->
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
